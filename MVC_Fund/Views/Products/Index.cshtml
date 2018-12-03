@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVC_Fund.Models.Product>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        TABLE {
+            width: 300px; /* Ширина таблицы */
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+        }
+
+        TD, TH {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid black; /* Параметры рамки */
+        }
+
+        TH {
+            background: #b0e0e6; /* Цвет фона */
+        }
+    </style>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <td>  ID</td>
+            <td> Описание</td>
+            <td> Цена </td>
+        </tr>
+
+        @foreach (var item in Model)
+    {
+        <tr>
+            <td>  @item.Id </td>
+            <td> @item.Description</td>
+            <td> @item.Price </td>
+        </tr>
+}
+
+    </table>
+    </body>
+</html>
