@@ -20,7 +20,7 @@ namespace MVC_Fund2
             routes.MapRoute(
                 name: "Default1",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional } //
             );
 
         }
