@@ -14,6 +14,7 @@ namespace MVC_Fund2.Controllers
             if (x != null && y != null)
             {
                 ViewBag.Result = x + y;
+                ViewBag.Name = "Add";
             }
             return View();
         }
@@ -22,6 +23,8 @@ namespace MVC_Fund2.Controllers
             if (x != null && y != null)
             {
                 ViewBag.Result = x * y;
+                ViewBag.Name = "Mul";
+
             }
             return View("Add");
         }
@@ -30,6 +33,7 @@ namespace MVC_Fund2.Controllers
             if (x != null && y != null)
             {
                 ViewBag.Result = x - y;
+                ViewBag.Name = "Sub";
             }
             return View("Add");
         }
@@ -38,6 +42,7 @@ namespace MVC_Fund2.Controllers
             if (x != null && y != null)
             {
                 ViewBag.Result = x / y;
+                ViewBag.Name = "Div";
             }
             return View("Add");
         }
