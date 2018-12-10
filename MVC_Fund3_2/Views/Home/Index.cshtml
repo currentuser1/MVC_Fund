@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MVC_Fund3_2.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+@foreach (var item in Model)
+{
+    // Второй параметр метода Partial - модель, которая будет доступна в частичном представлении
+    @Html.Partial("_ProductDesc", item)
+}
+
