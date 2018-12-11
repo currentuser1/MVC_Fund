@@ -17,7 +17,7 @@ namespace MVC_Fund3_2.Controllers
         public ActionResult ShowTable(int numberOfRows = 5)
         {
             IEnumerable<Product> products = ProductCollection.All.Take(numberOfRows);
-            return View(products);
+            return View("_Table",products);
         }
 
 
