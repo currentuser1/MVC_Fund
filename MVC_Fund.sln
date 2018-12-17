@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Fund3_2", "MVC_Fund3_2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Fund4_0", "MVC_Fund4_0\MVC_Fund4_0.csproj", "{C16D8124-E069-48C8-A487-4D72C0F02B4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Fund4_1", "MVC_Fund4_1\MVC_Fund4_1.csproj", "{CEE6667B-61E6-4E07-8CA2-8B78476BA83A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C16D8124-E069-48C8-A487-4D72C0F02B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C16D8124-E069-48C8-A487-4D72C0F02B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C16D8124-E069-48C8-A487-4D72C0F02B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE6667B-61E6-4E07-8CA2-8B78476BA83A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE6667B-61E6-4E07-8CA2-8B78476BA83A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE6667B-61E6-4E07-8CA2-8B78476BA83A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE6667B-61E6-4E07-8CA2-8B78476BA83A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
