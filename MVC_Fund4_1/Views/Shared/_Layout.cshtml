@@ -7,10 +7,15 @@
 </head>
 <body>
     <div>
-        @Html.ActionLink("Домашняя", "Index") | @Html.ActionLink("О нас", "About") | @Html.ActionLink("Новости", "News") 
+        @Html.ActionLink("Index", "Index") | @Html.ActionLink("Foo", "Foo")
     </div>
+    <br />
+    <br />
 
     @RenderSection("Body")
+
+    @*Визуализация необязательной секции Footer*@
     @RenderSection(name: "Footer", required: false)
 </body>
+
 </html>
