@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+}
+@section Body{
+    @using (Html.BeginForm("Registration", "Home"))
+    {
+        <label>Логин</label> @Html.TextBox("login") <br />
+        <label>Пароль</label> @Html.TextBox("password") <br />
+        <label>Подтверждение пароля</label> @Html.TextBox("repeatpassword") <br />
+        <label>Email</label> @Html.TextBox("email") <br />
+        <input type="submit" name="operation" value="Регистрация" />
+
+    }
+}

@@ -59,3 +59,13 @@ textarea {
 .validation-summary-valid {
     display: none;
 }
+.rightcol {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 20px; /* Положение от верхнего края */
+    right: 10px; /* Положение от правого края */
+    width: 200px; /* Ширина блока */
+    background: #ccc; /* Цвет фона */
+    border: 1px solid black; /* Параметры рамки */
+    padding: 10px; /* Поля вокруг текста */
+}
+
