@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.8.2.min.js")" type="text/javascript"></script>
+    <style>
+        .rightcol {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 20px; /* Положение от верхнего края */
+            right: 10px; /* Положение от правого края */
+            width: 200px; /* Ширина блока */
+            background: #ccc; /* Цвет фона */
+            border: 1px solid black; /* Параметры рамки */
+            padding: 10px; /* Поля вокруг текста */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("Домашняя", "Index") | @Html.ActionLink("Новости", "News") | @Html.ActionLink("О нас", "About")
+    </div>
+    <div class="rightcol">
+
+        @Html.ActionLink("Вход", "Login") | @Html.ActionLink("Регистрация", "Registration")
+
+    </div>
+    <br />
+    <br />
+
+    @RenderBody()
+
+    @*Визуализация необязательной секции Footer*@
+    @RenderSection(name: "Footer", required: false)
+</body>
+
+</html>

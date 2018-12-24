@@ -1,0 +1,17 @@
+﻿@model MVC_Fund5_1.Models.RegistrationModel
+@{
+    ViewBag.Title = "Registration";
+}
+
+<div>
+    @using (Html.BeginForm("Registration", "Home"))
+    {
+        <label>Логин</label> @Html.TextBoxFor(m => m.login) <br />
+        <label>Пароль</label> @Html.TextBoxFor(m => m.password) <br />
+        <label>Пароль</label> @Html.TextBoxFor(m => m.repeatpassword) <br />
+        <label>Пароль</label> @Html.TextBoxFor(m => m.email) <br />
+        <input type="submit" name="operation" value="Регистрация" />
+
+    }
+</div>
+

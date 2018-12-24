@@ -1,0 +1,21 @@
+﻿@model MVC_Fund5_1.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+    <div>
+        @using (Html.BeginForm("Login", "Home"))
+        {
+            <label>Логин</label> @Html.TextBoxFor(m=>m.login) <br />
+            <label>Пароль</label> @Html.TextBoxFor(m=>m.password) <br />
+            <input type="submit" name="operation" value="Вход" />
+
+        }
+    </div>
+
+
+
+
+
+
