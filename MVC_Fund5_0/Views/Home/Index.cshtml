@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+<fieldset>
+    <div>
+        @Html.TextBox("x")
+    </div>
+
+    <div>
+        @Html.TextBox("y")
+    </div>
+
+    @if (ViewBag.Result != null)
+    {
+        <p>@ViewBag.Result</p>
+    }
+
+
+    <input type="submit" name="Calc" value="+" />
+    <input type="submit" name="Calc" value="-" />
+    <input type="submit" name="Calc" value="*" />
+    <input type="submit" name="Calc" value="/" />
+
+</fieldset>
+}

@@ -29,7 +29,7 @@ namespace MVC_Fund4_1.Controllers
 
             return View();
         }
-       // [HttpPost] // метод будет вызываться только при POST запросах
+
         public ActionResult Login()
         {
 
@@ -74,7 +74,7 @@ namespace MVC_Fund4_1.Controllers
                 writer.WriteLine(login);
                 writer.WriteLine(password);
                 writer.WriteLine(repeatpassword);
-                writer.WriteLine(email);
+                writer.WriteLine(email); //
 
             }
 
