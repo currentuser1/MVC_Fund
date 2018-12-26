@@ -5,68 +5,60 @@ using System.Web;
 
 namespace MVC_Fund5_2.Models
 {
-    public  class ProductDatabase
+    public class ProductDatabase
     {
-       // private static List<Product> _products;
 
-        public static List<Product> Products
-        {
+        private static List<Product> products; //field
+        public static List<Product> Products //property
+        { 
             get
             {
-                // if (_products == null)
-                //  {
-                   // _products = new List<Product>();
-                    Product info = new Product();
+                if (products == null)
+                {
+                    products = new List<Product>();
 
+                    Product info = new Product();
                     info.ID = 1;
                     info.Name = "Butter";
                     info.Price = 10;
                     info.Description = "blablabutter";
-                    Products.Add(info);
+                    products.Add(info);
 
                     info = new Product();
                     info.ID = 2;
                     info.Name = "Broad";
                     info.Price = 20;
                     info.Description = "blablabroad";
-                Products.Add(info);
+                    products.Add(info);
 
                     info = new Product();
                     info.ID = 3;
                     info.Name = "Oil";
                     info.Price = 30;
                     info.Description = "blablaoil";
-                Products.Add(info);
+                    products.Add(info);
 
                     info = new Product();
                     info.ID = 4;
                     info.Name = "Milk";
                     info.Price = 40;
                     info.Description = "blablamilk";
-                Products.Add(info);
+                    products.Add(info);
 
                     info = new Product();
                     info.ID = 5;
                     info.Name = "tomato";
                     info.Price = 50;
                     info.Description = "blablatomato";
-                Products.Add(info);
-               // }
-                return Products;
+                    products.Add(info);
+
+                }
+                return products;
             }
+
         }
 
     }
-
-
-
-
-
-
-
-
-
-
 
         public class Product
         {
@@ -77,4 +69,3 @@ namespace MVC_Fund5_2.Models
         }
     }
 
-}

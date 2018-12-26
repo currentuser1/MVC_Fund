@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Fund5_1", "MVC_Fund5_1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Fund5_2", "MVC_Fund5_2\MVC_Fund5_2.csproj", "{4AC9D516-61F1-47F3-9A75-15D3BAB1DB0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{C2C513D7-EBCD-4CB0-899C-5DFEFFDBBEDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{4AC9D516-61F1-47F3-9A75-15D3BAB1DB0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AC9D516-61F1-47F3-9A75-15D3BAB1DB0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AC9D516-61F1-47F3-9A75-15D3BAB1DB0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C513D7-EBCD-4CB0-899C-5DFEFFDBBEDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C513D7-EBCD-4CB0-899C-5DFEFFDBBEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C513D7-EBCD-4CB0-899C-5DFEFFDBBEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C513D7-EBCD-4CB0-899C-5DFEFFDBBEDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
