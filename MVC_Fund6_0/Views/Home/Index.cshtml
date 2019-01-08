@@ -1,0 +1,18 @@
+﻿@model MVC_Fund6_0.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Index</h2>
+
+@*EditorForModel - визуализирует редакторы для целого объекта модели*@
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Send" />
+}
+
+    <br />
+    @*DisplayForModel - визуализирует представление для чтения свойств целого объекта модели*@
+    @Html.DisplayForModel()
