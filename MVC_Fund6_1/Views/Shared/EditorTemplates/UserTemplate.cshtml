@@ -1,14 +1,71 @@
-﻿@*Шаблон для редактирования значения свойства типа Role*@
-@using MVC_Fund6_1.Models
+﻿@using MVC_Fund6_1.Models
+@using System;
+@using System.Collections.Generic;
+@using System.ComponentModel.DataAnnotations;
+@using System.ComponentModel;
+@using System.Linq;
+@using System.Web;
+@using System.Reflection;
 
 @model CityCode
 
 <select id="CityCode" name="CityCode">
+    @{
+        /*Первый способ (получение значения из атрибута Description)*/
+
+        String GetNameFromDescription(Enum enumElement)
+        {
+            Type type = enumElement.GetType();
+            MemberInfo[] memInfo = type.GetMember(enumElement.ToString());
+            if (memInfo != null && memInfo.Length > 0)
+            {
+                Object[] attributes = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                if (attributes != null && attributes.Length > 0)
+                    return ((DescriptionAttribute)attributes[0]).Description;
+            }
+            return enumElement.ToString();
+        }
+
+        /*Второй способ (метод расширения)*/
+
+        /* public static String GetNameFromDescription(this Enum enumElement)
+    {
+        Type type = enumElement.GetType();
+        MemberInfo[] memInfo = type.GetMember(enumElement.ToString());
+        if (memInfo != null && memInfo.Length > 0)
+        {
+            Object[] attributes = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+            if (attributes != null && attributes.Length > 0)
+                return ((DescriptionAttribute)attributes[0]).Description;
+        }
+        return enumElement.ToString();
+    }*/
+
+        /*Рефакторинг первого способа*/
+
+        /*static String GetNameFromDescription(Enum enumElement) => enumElement
+        .GetType()
+        .GetField(enumElement.ToString())
+        .GetCustomAttribute<DescriptionAttribute>()
+        .Description;*/
+
+        /*Рефакторинг второго способа*/
+
+        /*public static String GetNameFromDescription(this Enum enumElement) => enumElement
+        .GetType()
+        .GetField(enumElement.ToString())
+        .GetCustomAttribute<DescriptionAttribute>()
+        .Description;*/
+
+        /*Используем: GetNameFromDescription(CityCode.Three)-первый способ или CityCode.Three.GetNameFromDescription()-второй способ*/
+
+
+    }
     @foreach (CityCode value in Enum.GetValues(typeof(CityCode)))
     {
-
-        <option value="@value" @(Model == value ? "selected=\"selected\"" : "")>
-            @value
+        var x = GetNameFromDescription(value);
+        <option value="@x">
+            @x
         </option>
     }
 </select>

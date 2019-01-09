@@ -11,21 +11,11 @@ namespace MVC_Fund6_1.Controllers
     {
         public ActionResult Index()
         {
-
-
-
             User user = new User();
-
             user.CodeCountry = "+7";
             user.CodeUser = "123456789";
-
-            user.CodeCity = CityCode.one;
-
-
-
-
+            user.CodeCity = CityCode.Two;
             return View(user);
-
         }
 
     }
