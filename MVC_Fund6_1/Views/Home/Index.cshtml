@@ -1,0 +1,16 @@
+﻿@model MVC_Fund6_1.Models.User
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>EditorFor</h2>
+
+@Html.LabelFor(x => x.CodeCountry)<br />
+@Html.EditorFor(x => x.CodeCountry) <br />
+
+@Html.LabelFor(x => x.CodeCity)<br />
+@Html.EditorFor(x => x.CodeCity,"UserTemplate") <br />
+
+@Html.LabelFor(x => x.CodeUser)<br />
+@Html.EditorFor(x => x.CodeUser)
+
+

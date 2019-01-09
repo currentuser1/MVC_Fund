@@ -1,0 +1,14 @@
+﻿@*Шаблон для редактирования значения свойства типа Role*@
+@using MVC_Fund6_1.Models
+
+@model CityCode
+
+<select id="CityCode" name="CityCode">
+    @foreach (CityCode value in Enum.GetValues(typeof(CityCode)))
+    {
+
+        <option value="@value" @(Model == value ? "selected=\"selected\"" : "")>
+            @value
+        </option>
+    }
+</select>
