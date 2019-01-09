@@ -17,7 +17,7 @@ namespace MVC_Fund6_2.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.Customers.ToList()); // dsfdsf
         }
 
         // GET: Customers/Details/5
