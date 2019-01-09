@@ -1,0 +1,31 @@
+﻿@model MVC_Fund6_2.Models.ReportModel
+
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Report</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+
+
+
+        <div>
+            <label>Start Date</label>
+            @Html.TextBoxFor(m => m.StartDate)
+        </div>
+
+        <div>
+            <label>End Date</label>
+            @Html.TextBoxFor(m => m.EndDate)
+        </div>
+
+
+
+        <input type="submit" value="Check" />
+
+    </fieldset>
+}
+
