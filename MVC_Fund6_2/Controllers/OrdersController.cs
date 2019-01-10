@@ -141,6 +141,11 @@ namespace MVC_Fund6_2.Controllers
                 FROM income
                 WHERE date BETWEEN '2001/04/01' AND '2001/04/30';*/
 
+
+          /*  from p in db.Orders
+            where p.Count > 20
+            select p */
+
             return View();
 
    
