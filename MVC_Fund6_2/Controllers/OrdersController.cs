@@ -136,8 +136,12 @@ namespace MVC_Fund6_2.Controllers
         {
             Debug.WriteLine("StartDate = " + incomingData.StartDate);
             Debug.WriteLine("EndDate = " + incomingData.EndDate);
-            var orders = db.Orders;
-            return View(orders.ToList());
+
+            /*  SELECT count(point) as count, sum(inc) as sum
+                FROM income
+                WHERE date BETWEEN '2001/04/01' AND '2001/04/30';*/
+
+            return View();
 
    
         }
