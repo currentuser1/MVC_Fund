@@ -142,9 +142,18 @@ namespace MVC_Fund6_2.Controllers
                 WHERE date BETWEEN '2001/04/01' AND '2001/04/30';*/
 
 
-          /*  from p in db.Orders
-            where p.Count > 20
-            select p */
+
+            int count = (from x in db.Orders where (x.Date >= incomingData.StartDate && x.Date <= incomingData.EndDate)  select x).Count();
+            ViewBag.Count = count;
+            /*Select(count * cost) as amount from(Select count, cost from orders o inner join products p on o.productid = p.productid)*/
+            var result = (from o in db.Orders
+                         join p in db.Products on o.ProductId equals p.ProductId
+                         let amount = o.Count * p.Cost
+                         where (o.Date >= incomingData.StartDate && o.Date <= incomingData.EndDate)
+                          //select p.Cost;
+                          select amount).Sum();
+            ViewBag.Result = result;
+
 
             return View();
 

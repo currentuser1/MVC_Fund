@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MVC_Fund6_2.Models.Order>
 @{
     ViewBag.Title = "Report";
 }
@@ -27,4 +27,9 @@
 
     </fieldset>
 }
+<div>Всего продаж @ViewBag.Count</div>
+<div>Общая стоимость @ViewBag.Result</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
