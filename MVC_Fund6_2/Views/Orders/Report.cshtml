@@ -29,7 +29,20 @@
 }
 <div>Всего продаж @ViewBag.Count</div>
 <div>Общая стоимость @ViewBag.Result</div>
+
+@using (Html.BeginForm())
+{
+
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        <label>Введите имя или фамилию или ID пользователя </label>
+        @Html.TextBox("y")
     </div>
+    <input type="submit" value="Запросить статистику" />
+
+}
+    <div>ХЗ что @ViewBag.Query</div>
+    
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 

@@ -137,6 +137,7 @@ namespace MVC_Fund6_2.Controllers
             Debug.WriteLine("StartDate = " + incomingData.StartDate);
             Debug.WriteLine("EndDate = " + incomingData.EndDate);
 
+
             /*  SELECT count(point) as count, sum(inc) as sum
                 FROM income
                 WHERE date BETWEEN '2001/04/01' AND '2001/04/30';*/
@@ -155,9 +156,20 @@ namespace MVC_Fund6_2.Controllers
             ViewBag.Result = result;
 
 
+
+
+
             return View();
 
    
+        }
+        [HttpPost]
+        public ActionResult Report(string y)
+        {
+            var query = from o in db.Customers where o.Name == y select o.Email;
+            ViewBag.Query = query;
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)
