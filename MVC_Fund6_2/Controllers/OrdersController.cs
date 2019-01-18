@@ -166,7 +166,7 @@ namespace MVC_Fund6_2.Controllers
         [HttpPost]
         public ActionResult Report(string y)
         {
-            var query = from o in db.Customers where o.Name == y select o.Email;
+            var query = from o in db.Customers where o.Name == y select o.Email; //
             ViewBag.Query = query;
 
             return View();
