@@ -16,21 +16,21 @@ namespace MVC_Fund6_2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "MVC_Fund6_2.Controllers"}
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
             );
             routes.MapRoute(
-                name: "PublicRoute",
+                name: "Report",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Orders", action = "Report", y=0 },
-                namespaces: new[] { "MVC_Fund6_2.Controllers" }
-            );
+                defaults: new { controller = "Orders", action = "Report", id = UrlParameter.Optional, httpMethod = new HttpMethodConstraint("POST")  }
+                );
             routes.MapRoute(
-                 name: "PublicRoute2",
-                 url: "{controller}/{action}/{id}",
-                 defaults: new { controller = "Orders", action = "Report", id = UrlParameter.Optional },
-                 namespaces: new[] { "MVC_Fund6_2.Controllers" }
-);
+                name: "Reports",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Orders", action = "Reports", id = UrlParameter.Optional, httpMethod = new HttpMethodConstraint("POST") }
+                );
+
+
         }
     }
 }

@@ -1,36 +1,9 @@
 ﻿@model IEnumerable<MVC_Fund6_2.Models.Order>
 @{
-    ViewBag.Title = "Report";
+    ViewBag.Title = "Reports";
 }
 
-<h2>Report</h2>
-
-@using (Html.BeginForm())
-{
-    <fieldset>
-
-
-
-        <div>
-            <label>Start Date</label>
-            @Html.TextBox("StartDate")
-        </div>
-
-        <div>
-            <label>End Date</label>
-            @Html.TextBox("EndDate")
-        </div>
-
-
-
-        <input type="submit" value="Check" />
-
-    </fieldset>
-}
-<div>Всего продаж @ViewBag.Count</div>
-<div>Общая стоимость @ViewBag.Result</div>
-
-<p></p>
+<h2>Reports</h2>
 
 @using (Html.BeginForm())
 {
@@ -42,7 +15,7 @@
     <input type="submit" value="Запросить статистику" />
 
 }
-<div> @ViewBag.Query</div>
+<div>ХЗ что @ViewBag.Query</div>
 
 <table class="table">
     <tr>
@@ -61,7 +34,30 @@
         <th></th>
     </tr>
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 

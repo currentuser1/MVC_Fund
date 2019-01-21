@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Data;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using MVC_Fund6_2.Models;
 
@@ -132,45 +130,47 @@ namespace MVC_Fund6_2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Report(ReportModel incomingData)
+        public ActionResult Report(ReportModel incomingData,string y)
         {
             Debug.WriteLine("StartDate = " + incomingData.StartDate);
             Debug.WriteLine("EndDate = " + incomingData.EndDate);
-
-
-            /*  SELECT count(point) as count, sum(inc) as sum
-                FROM income
-                WHERE date BETWEEN '2001/04/01' AND '2001/04/30';*/
-
-
-
-            int count = (from x in db.Orders where (x.Date >= incomingData.StartDate && x.Date <= incomingData.EndDate)  select x).Count();
+            int count;
+            if (incomingData.StartDate != null && incomingData.EndDate != null)
+            {
+                count = (from x in db.Orders where (x.Date >= incomingData.StartDate && x.Date <= incomingData.EndDate) select x).Count();
+            }
+            else count = 0;
             ViewBag.Count = count;
-            /*Select(count * cost) as amount from(Select count, cost from orders o inner join products p on o.productid = p.productid)*/
-            var result = (from o in db.Orders
-                         join p in db.Products on o.ProductId equals p.ProductId
-                         let amount = o.Count * p.Cost
-                         where (o.Date >= incomingData.StartDate && o.Date <= incomingData.EndDate)
+            decimal? result;
+            if (incomingData.StartDate != null && incomingData.EndDate != null)
+            {
+                result=(from o in db.Orders
+                          join p in db.Products on o.ProductId equals p.ProductId
+                          let amount = o.Count * p.Cost
+                          where (o.Date >= incomingData.StartDate && o.Date <= incomingData.EndDate)
                           //select p.Cost;
                           select amount).Sum();
+
+
+            }
+            else result = 0;
             ViewBag.Result = result;
-
-
-
-
-
+            Debug.WriteLine("y = " + y);
+            var query = from o in db.Customers where o.Name == y select o.Email;
+            ViewBag.Query = query;
             return View();
 
    
         }
-        [HttpPost]
-        public ActionResult Report(string y)
-        {
-            var query = from o in db.Customers where o.Name == y select o.Email; //
-            ViewBag.Query = query;
+        //[HttpPost]
+        //public ActionResult Report(string y)
+        //{
+        //    Debug.WriteLine("y = " + y);
+        //    var query = from o in db.Customers where o.Name == y select o.Email; 
+        //    ViewBag.Query = query;
+        //    return View();
+        //}
 
-            return View();
-        }
 
         protected override void Dispose(bool disposing)
         {
