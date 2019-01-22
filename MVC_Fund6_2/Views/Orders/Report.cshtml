@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC_Fund6_2.Models.Order>
+﻿
 @{
     ViewBag.Title = "Report";
 }
@@ -42,26 +42,13 @@
     <input type="submit" value="Запросить статистику" />
 
 }
-<div> @ViewBag.Query</div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Customer.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Count)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
-    </tr>
+@foreach (var item in ViewBag.Query)
+{
+    <p>@item</p>
+}
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 

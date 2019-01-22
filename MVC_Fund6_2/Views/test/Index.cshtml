@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>В списке @(((List<string>)ViewBag.Countries).Count) элемента:</h3>
+
+@foreach (string country in ViewBag.Countries)
+{
+    <p>@country</p>
+}
+
+<h2>Index</h2>
+

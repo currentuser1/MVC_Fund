@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Diagnostics;
@@ -149,27 +150,32 @@ namespace MVC_Fund6_2.Controllers
                           let amount = o.Count * p.Cost
                           where (o.Date >= incomingData.StartDate && o.Date <= incomingData.EndDate)
                           //select p.Cost;
-                          select amount).Sum();
-
-
+                          select amount).DefaultIfEmpty(0).Sum();
             }
             else result = 0;
             ViewBag.Result = result;
             Debug.WriteLine("y = " + y);
-            var query = from o in db.Customers where o.Name == y select o.Email;
+
+            /*select t1.CustomerId,t1.Name,t1.Surname,t3.Name as Product,t3.Cost,t2.Count,t2.Date from DatabaseContext.dbo.Customers as t1 
+             INNER JOIN DatabaseContext.dbo.Orders as t2 ON t1.CustomerId=t2.CustomerId INNER JOIN DatabaseContext.dbo.Products as t3 ON t2.ProductId=t3.ProductId*/
+
+            var query = from c in db.Customers
+                        join o in db.Orders on c.CustomerId equals o.CustomerId
+                        join p in db.Products on o.ProductId equals p.ProductId
+                        select new
+                        {
+                            x=c.CustomerId,
+                            y=c.Name,
+                            z=c.Surname,
+                            a=p.Name,
+                            b=p.Cost,
+                            c=o.Count,
+                            d=o.Date
+                        };
             ViewBag.Query = query;
             return View();
-
-   
         }
-        //[HttpPost]
-        //public ActionResult Report(string y)
-        //{
-        //    Debug.WriteLine("y = " + y);
-        //    var query = from o in db.Customers where o.Name == y select o.Email; 
-        //    ViewBag.Query = query;
-        //    return View();
-        //}
+
 
 
         protected override void Dispose(bool disposing)

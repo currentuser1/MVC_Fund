@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Statistic";
+}
+
+<h2>Statistic</h2>
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Display("CustomerId")
+        </th>
+        <th>
+            @Html.Display("Name")
+        </th>
+        <th>
+            @Html.Display("Surname")
+        </th>
+        <th>
+            @Html.Display("Product")
+        </th>
+        <th>
+            @Html.Display("Cost")
+        </th>
+        <th>
+            @Html.Display("Count")
+        </th>
+        <th>
+            @Html.Display("Date")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @item
+        </td>
+
+    </tr>
+    }
+
+</table>
+
+@foreach (var country in Model)
+{
+    <p>@country</p>
+}
