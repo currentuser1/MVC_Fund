@@ -21,7 +21,7 @@ namespace MVC_Fund6_2.Controllers
         {
             var query = from c in db.Customers
                         join o in db.Orders on c.CustomerId equals o.CustomerId
-                        join p in db.Products on o.ProductId equals p.ProductId
+                        join p in db.Products on o.ProductId equals p.ProductId //
                         select new
                         {
                              c.CustomerId,
