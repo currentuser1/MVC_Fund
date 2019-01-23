@@ -24,14 +24,17 @@ namespace MVC_Fund6_2.Controllers
                         join p in db.Products on o.ProductId equals p.ProductId //
                         select new
                         {
-                             c.CustomerId,
-                             c.Name,
-                             c.Surname,
+                            c.CustomerId,
+                            c.Name,
+                            c.Surname,
                             Product = p.Name,
-                             p.Cost,
-                             o.Count,
-                             o.Date
+                            p.Cost,
+                            o.Count,
+                            o.Date
                         };
+
+
+
 
             return View(query.ToList());
         }

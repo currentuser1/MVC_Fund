@@ -158,17 +158,17 @@ namespace MVC_Fund6_2.Controllers
 
             /*select t1.CustomerId,t1.Name,t1.Surname,t3.Name as Product,t3.Cost,t2.Count,t2.Date from DatabaseContext.dbo.Customers as t1 
              INNER JOIN DatabaseContext.dbo.Orders as t2 ON t1.CustomerId=t2.CustomerId INNER JOIN DatabaseContext.dbo.Products as t3 ON t2.ProductId=t3.ProductId*/
-
             var query = from c in db.Customers
                         join o in db.Orders on c.CustomerId equals o.CustomerId
                         join p in db.Products on o.ProductId equals p.ProductId
+                        where c.Name==y
                         select new
                         {
-                            x=c.CustomerId,
-                            y=c.Name,
-                            z=c.Surname,
-                            a=p.Name,
-                            b=p.Cost,
+                            c.CustomerId,
+                            c.Name,
+                            c.Surname,
+                            Product=p.Name,
+                            p.Cost,
                             c=o.Count,
                             d=o.Date
                         };

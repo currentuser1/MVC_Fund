@@ -43,10 +43,23 @@
 
 }
 
-@foreach (var item in ViewBag.Query)
-{
-    <p>@item</p>
-}
+<p>@ViewBag.Query</p>
+
+<table class="table">
+
+
+    @foreach (var item in ViewBag.Query)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+  
+        </tr>
+    }
+
+</table>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")

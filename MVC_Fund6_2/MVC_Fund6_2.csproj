@@ -156,12 +156,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Countrys.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\X.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +217,7 @@
     <Content Include="Views\Orders\Report.cshtml" />
     <Content Include="Views\test\Index.cshtml" />
     <Content Include="Views\test\Statistic.cshtml" />
+    <Content Include="Views\Orders\Reports.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
