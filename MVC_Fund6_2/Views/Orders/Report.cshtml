@@ -2,27 +2,18 @@
 @{
     ViewBag.Title = "Report";
 }
-
 <h2>Report</h2>
-
 @using (Html.BeginForm())
 {
     <fieldset>
-
-
-
         <div>
             <label>Start Date</label>
             @Html.TextBox("StartDate")
         </div>
-
         <div>
             <label>End Date</label>
             @Html.TextBox("EndDate")
         </div>
-
-
-
         <input type="submit" value="Check" />
 
     </fieldset>
@@ -30,35 +21,15 @@
 <div>Всего продаж @ViewBag.Count</div>
 <div>Общая стоимость @ViewBag.Result</div>
 
-<p></p>
-
 @using (Html.BeginForm())
 {
-
     <div>
         <label>Введите имя пользователя </label>
         @Html.TextBox("y")
     </div>
     <input type="submit" value="Запросить статистику" />
-
 }
 
-<p>@ViewBag.Query</p>
-
-<table class="table">
-
-
-    @foreach (var item in ViewBag.Query)
-    {
-        <tr>
-            <td>
-                @item
-            </td>
-  
-        </tr>
-    }
-
-</table>
 
 
 <div>
