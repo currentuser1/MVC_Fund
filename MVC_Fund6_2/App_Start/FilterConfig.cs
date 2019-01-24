@@ -5,7 +5,7 @@ namespace MVC_Fund6_2
 {
     public class FilterConfig
     {
-        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters) //
         {
             filters.Add(new HandleErrorAttribute());
         }
