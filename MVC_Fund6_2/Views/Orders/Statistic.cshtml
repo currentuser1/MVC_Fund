@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MVC_Fund6_2.Models.X>
+
+@{
+    ViewBag.Title = "Statistic";
+}
+
+<h2>Statistic</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Введите имя пользователя </label>
+        @Html.TextBox("y")
+    </div>
+    <input type="submit" value="Запросить статистику" />
+}
+
+    <div>
+        @Html.ActionLink("Back to List", "Statistic")
+    </div>

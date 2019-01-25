@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MVC_Fund6_2.Models.X>
 @{
     ViewBag.Title = "Report";
 }
@@ -21,14 +21,6 @@
 <div>Всего продаж @ViewBag.Count</div>
 <div>Общая стоимость @ViewBag.Result</div>
 
-@using (Html.BeginForm())
-{
-    <div>
-        <label>Введите имя пользователя </label>
-        @Html.TextBox("y")
-    </div>
-    <input type="submit" value="Запросить статистику" />
-}
 
 
 

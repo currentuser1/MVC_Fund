@@ -216,8 +216,9 @@
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\Report.cshtml" />
     <Content Include="Views\test\Index.cshtml" />
+    <Content Include="Views\Orders\Statistic.cshtml" />
     <Content Include="Views\test\Statistic.cshtml" />
-    <Content Include="Views\Orders\Reports.cshtml" />
+    <Content Include="Views\Orders\Succes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

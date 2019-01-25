@@ -126,12 +126,61 @@ namespace MVC_Fund6_2.Controllers
 
         public ActionResult Report()
         {
-            
+
             return View();
         }
+        //[HttpPost]
+        //public ActionResult Report(ReportModel incomingData)
+        //{
+        //    int count;
+        //    if (incomingData.StartDate != null && incomingData.EndDate != null)
+        //    {
+        //        count = (from x in db.Orders where (x.Date >= incomingData.StartDate && x.Date <= incomingData.EndDate) select x).Count();
+        //    }
+        //    else count = 0;
+        //    ViewBag.Count = count;
+        //    decimal? result;
+        //    if (incomingData.StartDate != null && incomingData.EndDate != null)
+        //    {
+        //        result = (from o in db.Orders
+        //                  join p in db.Products on o.ProductId equals p.ProductId
+        //                  let amount = o.Count * p.Cost
+        //                  where (o.Date >= incomingData.StartDate && o.Date <= incomingData.EndDate)
+        //                  select amount).DefaultIfEmpty(0).Sum();
+        //    }
+        //    else result = 0;
+        //    ViewBag.Result = result;
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult Report(string y)
+        //{
+        //    var query = from c in db.Customers
+        //                join o in db.Orders on c.CustomerId equals o.CustomerId
+        //                join p in db.Products on o.ProductId equals p.ProductId
+        //                where c.Name == y
+        //                select new
+        //                {
+        //                    c.CustomerId,
+        //                    c.Name,
+        //                    c.Surname,
+        //                    Product = p.Name,
+        //                    p.Cost,
+        //                    c = o.Count,
+        //                    d = o.Date
+        //                };
+        //    ViewBag.Query = query.ToList();
+        //    return View();
+        //}
+
+
+
+
         [HttpPost]
         public ActionResult Report(ReportModel incomingData)
         {
+            Debug.WriteLine("StartDate = " + incomingData.StartDate);
+            Debug.WriteLine("EndDate = " + incomingData.EndDate);
             int count;
             if (incomingData.StartDate != null && incomingData.EndDate != null)
             {
@@ -146,83 +195,44 @@ namespace MVC_Fund6_2.Controllers
                           join p in db.Products on o.ProductId equals p.ProductId
                           let amount = o.Count * p.Cost
                           where (o.Date >= incomingData.StartDate && o.Date <= incomingData.EndDate)
+                          //select p.Cost;
                           select amount).DefaultIfEmpty(0).Sum();
             }
             else result = 0;
             ViewBag.Result = result;
+            //  Debug.WriteLine("y = " + y);
+
+            /*select t1.CustomerId,t1.Name,t1.Surname,t3.Name as Product,t3.Cost,t2.Count,t2.Date from DatabaseContext.dbo.Customers as t1 
+             INNER JOIN DatabaseContext.dbo.Orders as t2 ON t1.CustomerId=t2.CustomerId INNER JOIN DatabaseContext.dbo.Products as t3 ON t2.ProductId=t3.ProductId*/
             return View();
         }
-        [HttpPost]
-        public ActionResult Report(string y)
+
+        public ActionResult Statistic()
         {
-            var query = from c in db.Customers
-                        join o in db.Orders on c.CustomerId equals o.CustomerId
-                        join p in db.Products on o.ProductId equals p.ProductId
-                        where c.Name == y
-                        select new
-                        {
-                            c.CustomerId,
-                            c.Name,
-                            c.Surname,
-                            Product = p.Name,
-                            p.Cost,
-                            c = o.Count,
-                            d = o.Date
-                        };
-            ViewBag.Query = query;
             return View();
         }
 
+        [HttpPost]
 
+        public ActionResult Statistic(string y)
+        {
+            var query = (from c in db.Customers.AsEnumerable()
+                         join o in db.Orders.AsEnumerable() on c.CustomerId equals o.CustomerId//////
+                         join p in db.Products.AsEnumerable() on o.ProductId equals p.ProductId //
+                         where c.Name == y
+                         select new X
+                         {
+                             CustomerId = c.CustomerId,
+                             Name = c.Name,
+                             Surname = c.Surname,
+                             Product = p.Name,
+                             Cost = p.Cost,
+                             Count = o.Count,
+                             Date = o.Date
+                         }).ToList();
+            return View("Succes", query);
 
-
-        //[HttpPost]
-        //public ActionResult Report(ReportModel incomingData, string y)
-        //{
-        //    Debug.WriteLine("StartDate = " + incomingData.StartDate);
-        //    Debug.WriteLine("EndDate = " + incomingData.EndDate);
-        //    int count;
-        //    if (incomingData.StartDate != null && incomingData.EndDate != null)
-        //    {
-        //        count = (from x in db.Orders where (x.Date >= incomingData.StartDate && x.Date <= incomingData.EndDate) select x).Count();
-        //    }
-        //    else count = 0;
-        //    ViewBag.Count = count;
-        //    decimal? result;
-        //    if (incomingData.StartDate != null && incomingData.EndDate != null)
-        //    {
-        //        result=(from o in db.Orders
-        //                  join p in db.Products on o.ProductId equals p.ProductId
-        //                  let amount = o.Count * p.Cost
-        //                  where (o.Date >= incomingData.StartDate && o.Date <= incomingData.EndDate)
-        //                  //select p.Cost;
-        //                  select amount).DefaultIfEmpty(0).Sum();
-        //    }
-        //    else result = 0;
-        //    ViewBag.Result = result;
-        //  //  Debug.WriteLine("y = " + y);
-
-        //    /*select t1.CustomerId,t1.Name,t1.Surname,t3.Name as Product,t3.Cost,t2.Count,t2.Date from DatabaseContext.dbo.Customers as t1 
-        //     INNER JOIN DatabaseContext.dbo.Orders as t2 ON t1.CustomerId=t2.CustomerId INNER JOIN DatabaseContext.dbo.Products as t3 ON t2.ProductId=t3.ProductId*/
-        //    var query = from c in db.Customers
-        //                join o in db.Orders on c.CustomerId equals o.CustomerId
-        //                join p in db.Products on o.ProductId equals p.ProductId
-        //                where c.Name==y
-        //                select new
-        //                {
-        //                    c.CustomerId,
-        //                    c.Name,
-        //                    c.Surname,
-        //                    Product=p.Name,
-        //                    p.Cost,
-        //                    c=o.Count,
-        //                    d=o.Date
-        //                };
-        //    ViewBag.Query = query;
-        //    return View();
-        //}
-
-
+        }
 
         protected override void Dispose(bool disposing)
         {

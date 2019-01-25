@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<MVC_Fund6_2.Models.X>
 
 @{
-    ViewBag.Title = "Reports";
+    ViewBag.Title = "Succes";
 }
 
-<h2>Reports</h2>
+<h2>Succes</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -21,7 +19,7 @@
             @Html.DisplayNameFor(model => model.Product)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cost) 
+            @Html.DisplayNameFor(model => model.Cost)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Count)
@@ -52,12 +50,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CustomerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CustomerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CustomerId })
-        </td>
     </tr>
 }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
