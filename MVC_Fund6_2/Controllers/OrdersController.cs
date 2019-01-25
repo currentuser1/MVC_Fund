@@ -221,7 +221,7 @@ namespace MVC_Fund6_2.Controllers
                              Count = o.Count,
                              Date = o.Date
                          }).ToList();
-            return View("Succes", query);
+            return View("Success", query);
 
         }
 
