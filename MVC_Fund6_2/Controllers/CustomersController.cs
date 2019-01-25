@@ -21,12 +21,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
