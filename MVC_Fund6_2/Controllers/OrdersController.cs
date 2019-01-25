@@ -170,11 +170,12 @@ namespace MVC_Fund6_2.Controllers
             Debug.WriteLine("StartDate = " + incomingData.StartDate);
             Debug.WriteLine("EndDate = " + incomingData.EndDate);
             int count;
+
             if (incomingData.StartDate != null && incomingData.EndDate != null)
-            {
                 count = (from x in db.Orders where (x.Date >= incomingData.StartDate && x.Date <= incomingData.EndDate) select x).Count();
-            }
-            else count = 0;
+            else
+                count = 0;
+
             ViewBag.Count = count;
             decimal? result;
             if (incomingData.StartDate != null && incomingData.EndDate != null)
@@ -186,7 +187,9 @@ namespace MVC_Fund6_2.Controllers
                           //select p.Cost;
                           select amount).DefaultIfEmpty(0).Sum();
             }
-            else result = 0;
+            else
+                result = 0;
+
             ViewBag.Result = result;
             //  Debug.WriteLine("y = " + y);
 
@@ -208,7 +211,7 @@ namespace MVC_Fund6_2.Controllers
                          join o in db.Orders.AsEnumerable() on c.CustomerId equals o.CustomerId//////
                          join p in db.Products.AsEnumerable() on o.ProductId equals p.ProductId //
                          where c.Name == y
-                         select new X
+                         select new SalesViewModel
                          {
                              CustomerId = c.CustomerId,
                              Name = c.Name,

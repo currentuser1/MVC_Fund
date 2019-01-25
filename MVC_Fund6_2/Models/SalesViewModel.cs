@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Fund6_2.Models
 {
-    public class X
+    public class SalesViewModel
     {
         [Key]
         public int CustomerId { get; set; }

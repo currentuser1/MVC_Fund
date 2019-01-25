@@ -161,7 +161,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ReportModel.cs" />
-    <Compile Include="Models\X.cs" />
+    <Compile Include="Models\SalesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

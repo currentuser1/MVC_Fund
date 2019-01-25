@@ -16,7 +16,7 @@ namespace MVC_Fund6_2.Models
 
         public DbSet<Product> Products { get; set; }
 
-        public DbSet<X> Statistics { get; set; }
+        public DbSet<SalesViewModel> Statistics { get; set; }
 
     }
 }

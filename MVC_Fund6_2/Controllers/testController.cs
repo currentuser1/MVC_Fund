@@ -15,7 +15,8 @@ namespace MVC_Fund6_2.Controllers
                         join o in db.Orders.AsEnumerable() on c.CustomerId equals o.CustomerId//////
                         join p in db.Products.AsEnumerable() on o.ProductId equals p.ProductId //
                         where c.Name == "Mikhail"
-                         select new X                        {
+                         select new SalesViewModel
+                         {
                            CustomerId= c.CustomerId, 
                            Name = c.Name,
                            Surname= c.Surname,
