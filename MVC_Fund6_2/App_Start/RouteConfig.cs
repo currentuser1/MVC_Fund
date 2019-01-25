@@ -19,17 +19,6 @@ namespace MVC_Fund6_2
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
 
             );
-            routes.MapRoute(
-                name: "Report",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Orders", action = "Report", id = UrlParameter.Optional, httpMethod = new HttpMethodConstraint("POST")  }
-                );
-            routes.MapRoute(
-                name: "Reports",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Orders", action = "Reports", id = UrlParameter.Optional, httpMethod = new HttpMethodConstraint("POST") }
-                );
-
 
         }
     }
