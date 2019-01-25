@@ -21,12 +21,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Products/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Product product = db.Products.Find(id);
             if (product == null)
             {
@@ -59,12 +55,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Products/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Product product = db.Products.Find(id);
             if (product == null)
             {
@@ -90,7 +82,7 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Products/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {

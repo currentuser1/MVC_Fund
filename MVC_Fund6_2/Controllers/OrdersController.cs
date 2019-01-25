@@ -22,12 +22,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Orders/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Order order = db.Orders.Find(id);
             if (order == null)
             {
@@ -64,12 +60,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Orders/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Order order = db.Orders.Find(id);
             if (order == null)
             {
@@ -99,12 +91,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Orders/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Order order = db.Orders.Find(id);
             if (order == null)
             {

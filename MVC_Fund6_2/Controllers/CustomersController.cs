@@ -55,12 +55,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Customers/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
@@ -86,12 +82,8 @@ namespace MVC_Fund6_2.Controllers
         }
 
         // GET: Customers/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Customer customer = db.Customers.Find(id);
             if (customer == null)
             {
