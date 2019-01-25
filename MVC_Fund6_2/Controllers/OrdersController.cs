@@ -35,8 +35,8 @@ namespace MVC_Fund6_2.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerId = new SelectList(db.Customers, "CustomerId", "Name");
-            ViewBag.ProductId = new SelectList(db.Products, "ProductId", "Name");
+            ViewBag.CustomerSelectList = new SelectList(db.Customers, "CustomerId", "Name");
+            ViewBag.ProductSelectList = new SelectList(db.Products, "ProductId", "Name");
             return View();
         }
 
